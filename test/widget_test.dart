@@ -7,13 +7,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:mit_safari_app/main.dart';
+import 'package:mit_safari_app/app.dart';
+import 'package:posts_repository/posts_repository.dart';
+import 'package:weather_repository/weather_repository.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(
+      App(
+        postsRepository: PostsRepository(),
+        weatherRepository: WeatherRepository(),
+      ),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
