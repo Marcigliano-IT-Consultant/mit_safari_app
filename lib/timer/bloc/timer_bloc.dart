@@ -33,7 +33,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     emit(TimerRunInProgress(event.duration));
     _tickerSubscription?.cancel();
     _tickerSubscription = _ticker
-        .tick(ticks: event.duration)
+        .tick(duration: const Duration(seconds: 1), ticks: event.duration)
         .listen((duration) => add(TimerTicked(duration: duration)));
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:mit_safari_app/edit_todo/edit_todo.dart';
 import 'package:mit_safari_app/home/home.dart';
+import 'package:mit_safari_app/map/view/map_view.dart';
 import 'package:mit_safari_app/posts/posts.dart';
 import 'package:mit_safari_app/weather/weather.dart';
 
@@ -27,7 +28,12 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: IndexedStack(
         index: selectedTab.index,
-        children: const [WeatherPage(), PostsPage()],
+        children: const [
+          PostsPage(),
+          MapPage(),
+          WeatherPage(),
+          WeatherPage(),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
@@ -42,13 +48,23 @@ class HomeView extends StatelessWidget {
           children: [
             _HomeTabButton(
               groupValue: selectedTab,
-              value: HomeTab.todos,
-              icon: const Icon(Icons.list_rounded),
+              value: HomeTab.blog,
+              icon: const Icon(Icons.home),
             ),
             _HomeTabButton(
               groupValue: selectedTab,
-              value: HomeTab.stats,
-              icon: const Icon(Icons.show_chart_rounded),
+              value: HomeTab.map,
+              icon: const Icon(Icons.map),
+            ),
+            _HomeTabButton(
+              groupValue: selectedTab,
+              value: HomeTab.weather,
+              icon: const Icon(Icons.sunny),
+            ),
+            _HomeTabButton(
+              groupValue: selectedTab,
+              value: HomeTab.profile,
+              icon: const Icon(Icons.account_circle),
             ),
           ],
         ),

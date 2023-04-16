@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
 import 'package:mit_safari_app/posts/posts.dart';
 import 'package:posts_repository/posts_repository.dart';
 

@@ -1,10 +1,10 @@
 part of 'home_cubit.dart';
 
-enum HomeTab { todos, stats }
+enum HomeTab { blog, map, weather, profile }
 
 class HomeState extends Equatable {
   const HomeState({
-    this.tab = HomeTab.todos,
+    this.tab = HomeTab.blog,
   });
 
   final HomeTab tab;
