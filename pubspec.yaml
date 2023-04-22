@@ -28,6 +28,7 @@ dependencies:
   path_provider: ^2.0.11
   posts_repository:
     path: packages/posts_repository
+  realm: ^0.8.0+rc
   stream_transform: ^2.1.0
   user_repository:
     path: packages/user_repository
