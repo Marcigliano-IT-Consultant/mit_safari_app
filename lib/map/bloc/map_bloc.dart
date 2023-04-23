@@ -5,6 +5,7 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:map_tracking_repository/authentication_repository.dart';
 import 'package:mit_safari_app/helper/timer.dart';
 import 'package:stream_transform/stream_transform.dart';
 

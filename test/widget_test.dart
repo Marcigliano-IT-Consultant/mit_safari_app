@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:map_tracking_repository/authentication_repository.dart';
 import 'package:mit_safari_app/app.dart';
 import 'package:posts_repository/posts_repository.dart';
 import 'package:weather_repository/weather_repository.dart';
@@ -18,6 +19,7 @@ void main() {
       App(
         postsRepository: PostsRepository(),
         weatherRepository: WeatherRepository(),
+        mapTrackingRepository: MapTrackingRepository('mongodb://localhost:27017/mit_mongo_db'),
       ),
     );
 
