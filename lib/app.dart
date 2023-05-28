@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:map_tracking_repository/authentication_repository.dart';
 import 'package:mit_safari_app/home/home.dart';
 import 'package:mit_safari_app/theme/theme.dart';
 import 'package:posts_repository/posts_repository.dart';
@@ -11,11 +12,14 @@ class App extends StatelessWidget {
     super.key,
     required WeatherRepository weatherRepository,
     required PostsRepository postsRepository,
+    required MapTrackingRepository mapTrackingRepository,
   })  : _weatherRepository = weatherRepository,
-        _postsRepository = postsRepository;
+        _postsRepository = postsRepository,
+        _mapTrackingRepository = mapTrackingRepository;
 
   final WeatherRepository _weatherRepository;
   final PostsRepository _postsRepository;
+  final MapTrackingRepository _mapTrackingRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +30,9 @@ class App extends StatelessWidget {
         ),
         RepositoryProvider<PostsRepository>(
           create: (context) => _postsRepository,
+        ),
+        RepositoryProvider<MapTrackingRepository>(
+          create: (context) => _mapTrackingRepository,
         )
       ],
       child: BlocProvider(
@@ -51,7 +58,7 @@ class AppView extends StatelessWidget {
             appBarTheme: AppBarTheme(
               titleTextStyle: GoogleFonts.rajdhaniTextTheme(textTheme)
                   .apply(bodyColor: Colors.white)
-                  .headline6,
+                  .titleLarge,
             ),
           ),
           home: const HomePage(),

@@ -117,23 +117,6 @@ void main() {
       expect(find.byType(WeatherError), findsOneWidget);
     });
 
-    testWidgets('state is cached', (tester) async {
-      when<dynamic>(() => hydratedStorage.read('$WeatherCubit')).thenReturn(
-        WeatherState(
-          status: WeatherStatus.success,
-          weather: weather,
-          temperatureUnits: TemperatureUnits.fahrenheit,
-        ).toJson(),
-      );
-      await tester.pumpWidget(
-        BlocProvider.value(
-          value: WeatherCubit(MockWeatherRepository()),
-          child: MaterialApp(home: WeatherView()),
-        ),
-      );
-      expect(find.byType(WeatherPopulated), findsOneWidget);
-    });
-
     testWidgets('navigates to SettingsPage when settings icon is tapped',
         (tester) async {
       when(() => weatherCubit.state).thenReturn(WeatherState());

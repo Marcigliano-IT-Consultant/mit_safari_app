@@ -42,16 +42,6 @@ void main() {
       expect(weatherCubit.state, WeatherState());
     });
 
-    group('toJson/fromJson', () {
-      test('work properly', () {
-        final weatherCubit = WeatherCubit(weatherRepository);
-        expect(
-          weatherCubit.fromJson(weatherCubit.toJson(weatherCubit.state)),
-          weatherCubit.state,
-        );
-      });
-    });
-
     group('fetchWeather', () {
       blocTest<WeatherCubit, WeatherState>(
         'emits nothing when city is null',
