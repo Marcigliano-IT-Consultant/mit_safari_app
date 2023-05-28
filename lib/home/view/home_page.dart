@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mit_safari_app/database/database.dart';
 // import 'package:mit_safari_app/edit_todo/edit_todo.dart';
 import 'package:mit_safari_app/home/home.dart';
 import 'package:mit_safari_app/map/view/map_view.dart';
 import 'package:mit_safari_app/posts/posts.dart';
 import 'package:mit_safari_app/weather/weather.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -32,7 +34,7 @@ class HomeView extends StatelessWidget {
           PostsPage(),
           MapPage(),
           WeatherPage(),
-          WeatherPage(),
+          DataBase(),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

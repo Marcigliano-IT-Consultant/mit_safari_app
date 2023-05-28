@@ -12,13 +12,13 @@ class RouteBloc extends Bloc<RouteState, RouteEvent> {
   RouteBloc(this._repository) : super(RouteState as RouteEvent);
   final MapTrackingRepository _repository;
 
-  Future<List<TrackingRoute>> getTrackingRoutes() async {
+  Future<List<TrackingPoint>> getTrackingRoutes() async {
     await _repository.connect();
-    final list = await _repository.getTrackingRoutes();
+    final list = await _repository.getTrackingRoutes({});
     await _repository.close();
     return list
         .map(
-          (doc) => TrackingRoute.fromMap(doc as Map<String, dynamic>),
+          (doc) => TrackingPoint.fromMap(doc as Map<String, dynamic>),
         )
         .toList();
   }
